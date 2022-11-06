@@ -68,8 +68,8 @@ const reducer = (state = initialState, action) => {
 
 // async action creator - use middleware woh bh thunkMiddleware 
 const fetchUsers = () => {
-    return async function (dispatch) {
-        dispatch(fetchUsersFailure())
+    return async function (dispatch) { // it returns a function that has access  to dispatch 
+        dispatch(fetchUsersRequest())
         
         // axios
         //     .get('https://jsonplaceholder.typicode.com/users')
