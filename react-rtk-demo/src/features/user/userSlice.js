@@ -1,6 +1,5 @@
-const createSlice = require('@reduxjs/toolkit').createSlice
-const createAsyncThunk = require('@reduxjs/toolkit').createAsyncThunk
-const axios = require('axios')
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 const initialState = {
     loading: false,
@@ -14,7 +13,7 @@ const initialState = {
 // it accept two parameter - first is action name (action type) - 2nd is callback function that create payload
 // special functionality: it will automatically dispatch lifecycle actions on the returned promise
 // Generates pending, fulfilled and rejected action types - this is promise lifecycle method - or yeh action types extraReducers ma hi kaam krengi
-const fetchUsers = createAsyncThunk('user/fetchUsers', () => {
+export const fetchUsers = createAsyncThunk('user/fetchUsers', () => {  // export async function
     return axios
         .get('https://jsonplaceholder.typicode.com/users')
         .then((res) => res.data.map(currElem => currElem.id))
@@ -46,6 +45,6 @@ const userSlice = createSlice({
     },
 })
 
-module.exports = userSlice.reducer
-module.exports.fetchUsers = fetchUsers // export async function
+export default userSlice.reducer
+
 

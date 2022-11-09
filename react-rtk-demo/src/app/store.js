@@ -1,7 +1,7 @@
-const configureStore = require('@reduxjs/toolkit').configureStore
-const cakeReducer = require('../features/cake/cakeSlice')
-const iceCreamReducer = require('../features/icecream/iceCreamSlice')
-const userReducer = require('../features/user/userSlice')
+import { configureStore } from "@reduxjs/toolkit";
+import cakeReducer from '../features/cake/cakeSlice'
+import iceCreamReducer from '../features/icecream/iceCreamSlice'
+import userReducer from '../features/user/userSlice'
 
 const store = configureStore({
     reducer: { // specify a key called reducer
@@ -12,6 +12,6 @@ const store = configureStore({
     }
 })
 
-module.exports = store
+export default store
 
 // logger Middleware - insight info deta action dispatch which i see what redux toolkit does under the hood 

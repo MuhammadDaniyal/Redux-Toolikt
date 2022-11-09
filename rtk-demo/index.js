@@ -2,6 +2,7 @@ const store =  require('./app/store')
 
 const cakeActions = require('./features/cake/cakeSlice').cakeActions // as a name export ki as a name import
 const iceCreamActions = require('./features/icecream/iceCreamSlice').iceCreamActions
+const fetchUsers = require('./features/user/userSlice').fetchUsers
 
 console.log('Initial State', store.getState());
 
@@ -12,6 +13,8 @@ const unsubscribe = store.subscribe(() => {
 
 // 1st Way
 
+store.dispatch(fetchUsers())
+/*
 store.dispatch(cakeActions.ordered())
 store.dispatch(cakeActions.ordered())
 store.dispatch(cakeActions.ordered())
@@ -21,10 +24,11 @@ store.dispatch(iceCreamActions.ordered())
 store.dispatch(iceCreamActions.ordered())
 store.dispatch(iceCreamActions.ordered())
 store.dispatch(iceCreamActions.restocked(3))
+*/
 
 
 // 2nd Way
 
 // unsubscribe listening to the store
-unsubscribe()
+// unsubscribe() // duw to async issy comment krdya
 
